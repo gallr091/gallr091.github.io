@@ -1,8 +1,16 @@
 body {
 	--base-size: 12px;
-	--gutter: calc(3 * var(--base-size));
+	--gutter-size: calc(3 * var(--base-size));
 
 	--color--primary: black;
 	--color--secondary: gold;
-	--color-background: white;
+	--color--background: pink;
+}
+
+header {
+	background-color: var(--color--background);
+}
+
+.gutters {
+	padding-inline: var(--gutter-size);
 }
