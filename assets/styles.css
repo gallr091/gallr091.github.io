@@ -1,3 +1,8 @@
-p {
-	color: tomato;
+body {
+	--base-size: 12px;
+	--gutter: calc(3 * var(--base-size));
+
+	--color--primary: black;
+	--color--secondary: gold;
+	--color-background: white;
 }
