@@ -26,11 +26,12 @@ header {
 	padding-inline: var(--gutter-size);
 }
 
-footer{
+footer {
+	--base-size: 48px; 
+	
 	background-color: var(--color--secondary);
 	padding-top: var(--base-size);
 	padding-bottom: calc(5 * var(--base-size));
-	
 }
 
 #main-content {
