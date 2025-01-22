@@ -1,5 +1,5 @@
 body {
-	--base-size: 12px;
+	--base-size: 20px;
 	--gutter-size: calc(3 * var(--base-size));
 
 	--color--primary: black;
@@ -20,4 +20,14 @@ footer{
 	background-color: var(--color--secondary);
 	padding-top: var(--base-size);
 	padding-bottom: calc(5 * var(--base-size));
+	
 }
+
+#main-content {
+	block-size: 75vh;
+	padding-block: var(--base-size);
+	padding-bottom: calc(5 * var(--base-size));
+}
+
+
+/* note: use inline size and block size more*/
