@@ -1,25 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
+
 :root {
-	--base-size: 16px;
+	--base-size: 1.2rem;
 	--gutter-size: calc(var(--base-size));
+
+	--font-title: "Instrument Serif", serif;
+	--font-body: "Schibsted Grotesk", sans-serif;
 
 	--color--primary: black;
 	--color--secondary: gold;
-	--color--background: pink;
+	--color--background: #F4F1EA;
+	--color-text: #b9375e;
 
 	font-size: var(--base-size);
 }
 
 @media (min-width: 600px){
 	:root{
-		--base-size: 20px;
+		--base-size: 1.2rem;
 		--gutter-size: calc(3 * var(--base-size));
 
 	}
 }
 
-header {
+body, html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden; /* Prevents the page from scrolling */
+	background-blend-mode: multiply;
+	/* z-index: -10000; */
+  }
+
+
+body {
 	background-color: var(--color--background);
-	padding-block: calc(5 * var(--base-size));
+	font-family: var(--font-body);
+
+}
+
+canvas {
+	display: block;
+	background: none;
+  }
+
+  
+header {
+	/* background-color: var(--color--background); */
+	padding-block: calc(2 * var(--base-size));
+	color: var(--color-text);
+}
+
+header h1{
+	font-size: calc(var(--base-size) *2);
+	font-family: var(--font-title);
+
+}
+
+header h2{
+	font-family: var(--font-body);
 }
 
 .gutters {
@@ -28,8 +68,6 @@ header {
 
 footer {
 	--base-size: 48px; 
-	
-	background-color: var(--color--secondary);
 	padding-top: var(--base-size);
 	padding-bottom: calc(5 * var(--base-size));
 }
@@ -40,5 +78,25 @@ footer {
 	padding-bottom: calc(5 * var(--base-size));
 }
 
+p{
+	color: var(--color-text);
+}
 
+.project-title{
+	font-size: calc(var(--base-size) *2);
+	font-family: var(--font-title);
+
+}
+
+ul{
+	margin-bottom: 1rem;
+}
+
+span{
+	position: relative; top: -0.5em; font-size: 50%; 
+}
+
+a:hover{
+	font-style: italic;
+}
 /* note: use inline size and block size more*/
