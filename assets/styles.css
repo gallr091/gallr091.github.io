@@ -37,6 +37,8 @@ body, html {
 body {
 	background-color: var(--color--background);
 	font-family: var(--font-body);
+	text-align: center;
+	/* display: flex; */
 
 }
 
@@ -50,6 +52,7 @@ header {
 	/* background-color: var(--color--background); */
 	padding-block: calc(2 * var(--base-size));
 	color: var(--color-text);
+	margin-bottom: 2rem;
 }
 
 header h1{
@@ -98,5 +101,6 @@ span{
 
 a:hover{
 	font-style: italic;
+	opacity: 70%;
 }
 /* note: use inline size and block size more*/
