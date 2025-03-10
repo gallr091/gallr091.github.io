@@ -21,14 +21,76 @@
 		--gutter-size: calc(3 * var(--base-size));
 
 	}
+
+	body, html{
+		display: flex;
+	}
+
+	header{
+		width: 50vw;
+	}
+
+	#main-content{
+		width: 70vw;
+	}
+
+	header h1{
+		font-size: calc(var(--base-size) *3);
+	}	
+	
+	.languages p{
+	border: 1.5px solid var(--color-text);
+	border-radius: 50px;
+	padding: 0.5rem;
+	}	
+
+
+
+
+.languages{
+	display: flex;
+	font-size: 1rem;
 }
+
+ul {
+	border: 1.5px solid var(--color-text);
+	border-radius: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 1rem;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: block; 
+}
+	
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity:0.5; /* Adjust intensity */
+    z-index: 9999;
+}
+
 
 body, html {
 	margin: 0;
 	padding: 0;
 	height: 100%;
 	width: 100%;
-	overflow: hidden; /* Prevents the page from scrolling */
 	background-blend-mode: multiply;
 	/* z-index: -10000; */
   }
@@ -37,7 +99,7 @@ body, html {
 body {
 	background-color: var(--color--background);
 	font-family: var(--font-body);
-	text-align: center;
+	/* text-align: center; */
 	/* display: flex; */
 
 }
@@ -79,6 +141,12 @@ footer {
 	block-size: 75vh;
 	padding-block: var(--base-size);
 	padding-bottom: calc(5 * var(--base-size));
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+	/* padding: 2rem; */
+	width: 100%;
+	padding-block: calc(2 * var(--base-size));
 }
 
 p{
@@ -86,21 +154,70 @@ p{
 }
 
 .project-title{
-	font-size: calc(var(--base-size) *2);
+	font-size: calc(var(--base-size) *1.5);
 	font-family: var(--font-title);
 
-}
-
-ul{
-	margin-bottom: 1rem;
 }
 
 span{
 	position: relative; top: -0.5em; font-size: 50%; 
 }
 
-a:hover{
-	font-style: italic;
-	opacity: 70%;
+ul{
+	border: 1.5px solid var(--color-text);
+	/* width: 50%; */
+	border-radius: 50px;
+	justify-content: space-between;
+	padding: 1.2rem;
+	align-items: center;
+	margin-bottom: 1rem;
+	/* width: 100vw; */
+	height: auto;
 }
+
+.languages{
+	/* display: flex; */
+	gap: 0.5rem;
+	font-style: italic;
+	font-size: 0.8rem;
+	display: flex;
+}
+
+.languages p{
+	border: 1.5px solid var(--color-text);
+	border-radius: 50px;
+	padding: 0.4rem;
+}
+
+.project-info{
+	margin-bottom: 0.5rem;
+}
+
+.project{
+	font-weight: 700;
+}
+
+ul:hover {
+    border-radius: 0px;
+    background-color: var(--color-text);
+    transition: ease-in-out 0.3s;
+    color: white;
+	mix-blend-mode: normal;
+	font-style: italic;
+}
+
+ul:hover p {
+    color: inherit;
+	border-color: white;
+	transition: ease-in-out 0.3s;
+
+}
+
+h1:hover{
+	font-style: italic;
+	transition: ease-in-out 0.3s;
+
+}
+
+
 /* note: use inline size and block size more*/

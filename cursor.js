@@ -2,8 +2,8 @@ let activeBlobs = [];
 
 function setup() {
 	let canvas = createCanvas(windowWidth, windowHeight);
-	canvas.position(0, 0); // Position at the top-left corner
-	canvas.style('z-index', '-100'); // Bring the canvas to the front  pixelDensity(1);
+	canvas.position(0, 0); 
+	canvas.style('z-index', '-100'); 
 	canvas.style('mix-blend-mode', 'multiply');
 	risoColors = [
     new Riso("MARINERED"),
@@ -28,25 +28,23 @@ function mouseMoved() {
     points: floor(random(30, 120)),
     color: random(risoColors),
     createdAt: millis(),
-    alpha: 255 // Start with full opacity
+    alpha: 255 
   };
   activeBlobs.push(newBlob);
 }
 
 function draw() {
   clear(); 
-  clearRiso(); // Clears previous layers
+  clearRiso(); 
   background(255);
   
-  // Remove blobs with no opacity left (fully faded)
   let now = millis();
   activeBlobs = activeBlobs.filter(blob => blob.alpha > 0);
   
-  // Draw existing blobs
   for (let blob of activeBlobs) {
     let age = now - blob.createdAt;
-    blob.alpha = map(age, 0, 2000, 255, 0); // Fade out over 2 seconds
-    blob.color.fill(blob.alpha); // Set the fill opacity based on age
+    blob.alpha = map(age, 0, 2000, 255, 0); 
+    blob.color.fill(blob.alpha); 
     
     drawBlob(blob.color, blob.x, blob.y, blob.diameter, blob.points);
   }
