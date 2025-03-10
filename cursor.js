@@ -4,7 +4,6 @@ function setup() {
 	let canvas = createCanvas(windowWidth, windowHeight);
 	canvas.position(0, 0); 
 	canvas.style('z-index', '-100'); 
-	canvas.style('mix-blend-mode', 'multiply');
 	risoColors = [
     new Riso("MARINERED"),
     new Riso("YELLOW"),
