@@ -1,10 +1,17 @@
+let canvas;
+let noiseTexture;
 let activeBlobs = [];
 
+function preload() {
+  noiseTexture = loadImage('assets/noise.png'); 
+}
+
 function setup() {
-	let canvas = createCanvas(windowWidth, windowHeight);
-	canvas.position(0, 0); 
-	canvas.style('z-index', '-100'); 
-	risoColors = [
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.position(0, 0);
+  canvas.style('z-index', '-100');
+
+  risoColors = [
     new Riso("MARINERED"),
     new Riso("YELLOW"),
     new Riso("METALLICGOLD"),
@@ -17,6 +24,26 @@ function setup() {
     new Riso("KELLYGREEN"),
     new Riso("LIGHTTEAL")
   ];
+
+  drawNoiseBackground(); 
+}
+
+function draw() {
+  clear();
+  clearRiso();
+  
+  let now = millis();
+  activeBlobs = activeBlobs.filter(blob => blob.alpha > 0);
+
+  for (let blob of activeBlobs) {
+    let age = now - blob.createdAt;
+    blob.alpha = map(age, 0, 2000, 255, 0);
+    blob.color.fill(blob.alpha);
+
+    drawBlob(blob.color, blob.x, blob.y, blob.diameter, blob.points);
+  }
+
+  drawRiso();
 }
 
 function mouseMoved() {
@@ -32,35 +59,31 @@ function mouseMoved() {
   activeBlobs.push(newBlob);
 }
 
-function draw() {
-  clear(); 
-  clearRiso(); 
-  background(255);
-  
-  let now = millis();
-  activeBlobs = activeBlobs.filter(blob => blob.alpha > 0);
-  
-  for (let blob of activeBlobs) {
-    let age = now - blob.createdAt;
-    blob.alpha = map(age, 0, 2000, 255, 0); 
-    blob.color.fill(blob.alpha); 
-    
-    drawBlob(blob.color, blob.x, blob.y, blob.diameter, blob.points);
-  }
-  
-  drawRiso();
-}
-
 function drawBlob(layer, x, y, diameter, points) {
-  let blobSize = diameter * 0.2; 
+  let blobSize = diameter * 0.2;
 
   layer.beginShape();
   for (let i = 0; i < TWO_PI; i += TWO_PI / points) {
     let angle = i;
-    let r = diameter + random(-blobSize, blobSize); 
+    let r = diameter + random(-blobSize, blobSize);
     let xOffset = -cos(angle) * r;
     let yOffset = -sin(angle) * r;
     layer.vertex(x + xOffset, y + yOffset);
   }
   layer.endShape(CLOSE);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  canvas.position(0, 0);
+  canvas.style('z-index', '-100');
+  drawNoiseBackground(); 
+}
+
+function drawNoiseBackground() {
+  for (let x = 0; x < width; x += noiseTexture.width) {
+    for (let y = 0; y < height; y += noiseTexture.height) {
+      image(noiseTexture, x, y);
+    }
+  }
 }
