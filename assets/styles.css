@@ -152,7 +152,7 @@ p{
 }
 
 .project-title{
-	font-size: calc(var(--base-size) *1.5);
+	font-size: calc(var(--base-size) *1.2);
 	font-family: var(--font-title);
 
 }
