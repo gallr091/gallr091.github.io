@@ -2,17 +2,18 @@ window.addEventListener("load", function() {
 
 	// FUNCTION: CHANGING TEXT EFFECT
 	const words = [
-	  "UI/UX",
-	  "graphic",
-	  "a creative coder",
+	  "UI/UX designer",
+	  "graphic designer",
+	  "creative coder",
 	  // "an illustrator",
-	  "motion", 
+	  "motion designer", 
 	  // "a printmaker",
-	  "web",
+	  "web designer",
   ];
   
-  const colors = ['#d81159', '#8f2d56', '#2274a5', '#7209b7', '#FA6385', '#e74c3c'];
-  // '#218380',
+  const colors = [
+	 "#ff48b0", "#765ba7", "#3d5588", "#3255a4", "#62c2b1", "#67b346", "#009da5"];
+    // '#218380',
   let index = 0;
   const changingWord = document.getElementById("changing-text");
   
